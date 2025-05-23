@@ -13,6 +13,13 @@ html {
 	justify-content: center;
 	align-items: center;
 	font-size: 1rem;
+	background: radial-gradient(
+			circle at center,
+			rgba(255, 255, 255, 0.6) 0%,
+			transparent 60%
+		),
+		linear-gradient(180deg, #ffe1e1 0%, #ffc6a0 100%);
+	background-blend-mode: screen;
 }
 
 h3 {
@@ -24,6 +31,8 @@ h3 {
 
 .wrapper {
 	display: flex;
+	gap: 2rem;
+	padding: 3rem 2rem;
 }
 
 .item {
@@ -36,7 +45,7 @@ h3 {
 	border-radius: 1rem;
 	overflow: hidden;
 	cursor: pointer;
-	transition: all 0.4s ease-in-out;
+	transition: width 0.4s ease, box-shadow 0.4s ease;
 	position: relative;
 }
 
@@ -53,7 +62,7 @@ h3 {
 	width: 100%;
 	left: 0;
 	top: 0;
-	background-image: linear-gradient(rgba(0, 0, 0, 0) rgba(0, 0, 0, 1));
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 }
 
 .desc {
@@ -63,6 +72,8 @@ h3 {
 	z-index: 1;
 	overflow: hidden;
 	transform: translateY(calc(100% - 54px));
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .item.item.active .desc {
@@ -72,11 +83,13 @@ h3 {
 .desc p {
 	opacity: 0;
 	transform: translateY(32px);
-	transition: all 0.4s ease-in-out 0.2s;
+	transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
 	margin-bottom: 20px;
-	letter-spacing: 3px;
-	font-family: 'poppins';
-	line-height: 1.7;
+	letter-spacing: 0.5px;
+	word-break: break-word;
+	line-height: 1.8;
+	font-size: 0.95rem;
+	font-family: 'Poppins', sans-serif;
 }
 
 .item.active .desc p {
